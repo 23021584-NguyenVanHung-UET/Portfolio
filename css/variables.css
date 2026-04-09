@@ -1,0 +1,11 @@
+:root {
+    --bg-main: #060a0f;
+    --bg-card: #111720;
+    --bg-card-hover: #1a222f;
+    --accent-color: #58f6f6;
+    --accent-hover: #3dd8d8;
+    --text-primary: #ffffff;
+    --border-color: #212833;
+    --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+    --transition: all 0.3s ease;
+}
