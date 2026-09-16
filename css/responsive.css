@@ -1,54 +1,16 @@
-@media (max-width: 992px) {
-    .hero {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-    }
-    
-    .hero h1 {
-        font-size: 3.5rem;
-    }
+@media (max-width: 900px) {
+  .container { width: min(100% - 40px, 680px); }
+  .nav-shell { gap: 16px; }.brand-name { display: none; }.menu-toggle { display: grid; gap: 5px; padding: 7px; order: 3; }.menu-toggle span { display: block; width: 22px; height: 1px; background: var(--ink); transition: transform .25s ease; }.menu-toggle.is-open span:first-child { transform: translateY(3px) rotate(45deg); }.menu-toggle.is-open span:last-child { transform: translateY(-3px) rotate(-45deg); }
+  .main-nav { position: absolute; top: 76px; left: 0; right: 0; display: none; flex-direction: column; align-items: stretch; gap: 0; padding: 12px 20px 20px; border-bottom: 1px solid var(--line); background: var(--bg); }.main-nav.is-open { display: flex; }.main-nav a { padding: 12px 0; border-bottom: 1px solid var(--line); }.nav-actions { order: 2; margin-left: auto; }.nav-resume { display: none; }
+  .section-pad { padding: 92px 0; }.hero { min-height: auto; padding-top: 82px; }.hero-grid { grid-template-columns: 1fr; gap: 35px; }.hero h1 { max-width: 600px; }.hero-visual { min-height: 460px; width: min(100%, 560px); }.hero-meta { margin-top: 45px; }.about-grid, .experience-grid, .education-grid { grid-template-columns: 1fr; gap: 35px; }.about-aside { grid-column: auto; margin: 10px 0 0; }.section-intro, .projects-heading { grid-template-columns: 1fr; gap: 25px; }.stack-row { grid-template-columns: 50px 1fr; gap: 15px; }.stack-tags { grid-column: 2; }.project-feature { grid-template-columns: 1fr; }.project-visual { min-height: 420px; }.project-detail { padding: 36px 28px; }.project-paper { grid-template-columns: 1fr; }.project-small { grid-template-columns: 1fr; gap: 26px; padding: 0 0 25px; }.project-small > div:last-child { padding: 0; }.contact-grid { gap: 45px; }
+}
+@media (max-width: 900px) { .experience-groups { grid-template-columns: 1fr; gap: 42px; } }
+@media (max-width: 560px) { .old-project-visual { height: 175px; } }
+
+@media (max-width: 560px) {
+  .container { width: min(100% - 32px, 440px); }.nav-shell { min-height: 68px; }.main-nav { top: 68px; }.section-pad { padding: 76px 0; }.hero { padding-top: 65px; }.hero h1 { margin-top: 20px; font-size: clamp(3rem, 15vw, 4.25rem); }.hero-lead { font-size: .92rem; }.hero-actions { align-items: flex-start; flex-direction: column; gap: 16px; }.hero-meta { flex-direction: column; gap: 10px; margin-top: 38px; }.hero-visual { min-height: 360px; }.orbit-one { width: 340px; height: 130px; }.orbit-two { width: 250px; height: 350px; }.code-window { width: 93%; }.code-body { padding: 19px 10px; font-size: .58rem; }.code-body p b { width: 18px; }.note-top { top: 29px; left: -2px; }.note-bottom { right: -4px; bottom: 25px; }.visual-spark { display: none; }.section-label { font-size: .61rem; }.about-content h2, .section-intro h2, .projects-heading h2, .contact-grid h2 { font-size: 3rem; }.about-text { grid-template-columns: 1fr; gap: 0; font-size: .88rem; }.about-text p + p { margin-top: 0; }.about-aside { width: 100%; }.stack-row { grid-template-columns: 35px 1fr; }.stack-title h3 { font-size: 1.1rem; }.stack-title p { font-size: .7rem; }.stack-tags { grid-column: 2; }.stack-tags span { font-size: .59rem; }.timeline-item { grid-template-columns: 75px 15px 1fr; gap: 10px; }.timeline-date { font-size: .58rem; overflow-wrap: anywhere; }.timeline-body h3 { font-size: 1.2rem; }.timeline-body > p:not(.role-kicker) { font-size: .83rem; }.project-visual { min-height: 340px; }.visual-label { top: 18px; left: 18px; font-size: .58rem; }.score-browser { width: 90%; }.browser-content { padding: 22px 18px 25px; }.visual-metric { right: 15px; bottom: 15px; }.visual-metric strong { font-size: 1.5rem; }.project-detail { padding: 28px 19px; }.project-detail h3, .project-small h3 { font-size: 1.35rem; }.project-summary { font-size: .82rem; }.project-actions { align-items: flex-start; flex-direction: column; gap: 12px; }.paper-sheet { top: 74px; left: 8%; width: 56%; height: 230px; padding: 19px 14px; }.paper-equation { margin: 22px 0 15px; font-size: .92rem; }.paper-box { gap: 8px; padding: 8px; font-size: .43rem; }.node-a { top: 74px; right: 18px; }.node-b { top: 170px; right: 13px; }.node-c { bottom: 74px; right: 26px; }.line-a { top: 108px; right: 62px; height: 45px; }.line-b { top: 208px; right: 62px; height: 45px; }.paper-caption { bottom: 16px; left: 18px; font-size: .55rem; }.geometry-visual { height: 175px; }.project-small > div:last-child { padding: 0 3px; }.education-item { grid-template-columns: 75px 1fr; gap: 17px; }.education-item h3 { font-size: 1.08rem; }.section-contact { padding-bottom: 80px; }.contact-grid { grid-template-columns: 1fr; margin-top: 43px; }.contact-links a { grid-template-columns: 90px 1fr 15px; }.contact-links strong { font-size: .7rem; }.footer-inner { align-items: flex-start; flex-direction: column; gap: 10px; }.project-dialog { padding: 30px 22px; }.project-dialog h2 { font-size: 2rem; }
 }
 
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        gap: 1.5rem;
-    }
-    
-    .project-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .stats-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .arsenal-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .skill-card.full-width {
-        grid-column: 1 / -1; 
-    }
-    
-    footer {
-        flex-direction: column;
-        gap: 1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero h1 {
-        font-size: 2.8rem; 
-    }
-    
-    .card-header-top {
-        flex-direction: column; 
-        align-items: flex-start;
-        gap: 10px;
-    }
-    
-    .skill-card {
-        padding: 1.5rem; 
-    }
+@media (max-width: 560px) {
+  .exam-dashboard { width: 88%; padding: 15px 13px 17px; }.exam-window-bar { padding-bottom: 11px; font-size: .47rem; }.exam-live-dot { font-size: .41rem; }.exam-flow { grid-template-columns: 1fr 10px 1fr 10px 1fr; gap: 3px; padding: 18px 0 15px; }.exam-flow span { font-size: .45rem; }.exam-flow small { font-size: .39rem; }.exam-flow i { font-size: .7rem; }.exam-flow .flow-active { padding: 7px 4px; }.exam-stats { gap: 4px; }.exam-stats div { padding: 7px 4px; }.exam-stats strong { font-size: 1.05rem; }.exam-stats span { font-size: .37rem; }.exam-progress { grid-template-columns: 1fr auto; gap: 6px; margin-top: 14px; }.exam-progress b { grid-column: 1 / -1; grid-row: 2; }.exam-progress em { font-size: .4rem; }.badge-top { top: 57px; left: 12px; }.badge-bottom { right: 12px; bottom: 63px; }.exam-badge { padding: 8px 9px; font-size: .41rem; }.exam-badge strong { font-size: .46rem; }.exam-equation { right: 13px; bottom: 20px; font-size: .47rem; }.dialog-highlights { gap: 11px; }.dialog-highlight span { font-size: .72rem; }
 }

@@ -1,178 +1,59 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="vi" data-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hưng - Fullstack Developer Portfolio</title>
-    
-    <link rel="stylesheet" href="css/variables.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f6fbff">
+  <meta name="description" content="Portfolio của Hưng — Software Developer định hướng backend/full-stack, xây dựng sản phẩm web và pipeline dữ liệu thực tế.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Hưng — Software Developer">
+  <meta property="og:description" content="Từ dữ liệu lộn xộn đến sản phẩm hữu ích cho người dùng thật.">
+  <meta property="og:locale" content="vi_VN">
+  <title>Hưng — Software Developer</title>
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
+  <div class="site-noise" aria-hidden="true"></div>
 
-    <div id="navbar-placeholder"></div>
+  <header class="site-header">
+    <div class="container nav-shell">
+      <a class="brand" href="#home" aria-label="Về đầu trang"><span class="brand-mark">H<span class="brand-mark-dot">.</span></span><span class="brand-name">Hưng Nguyễn</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Mở menu"><span></span><span></span></button>
+      <nav id="main-nav" class="main-nav" aria-label="Điều hướng chính"><a href="#about">About</a><a href="#skills">Stack</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#education">Education</a><a href="#contact">Contact</a></nav>
+      <div class="nav-actions"><button class="lang-toggle" type="button" aria-label="Chuyển sang tiếng Anh" title="Switch language"><span class="lang-vi">VI</span><span class="lang-divider">/</span><span class="lang-en">EN</span></button><button class="theme-toggle" type="button" aria-label="Chuyển dark mode" title="Chuyển dark mode"><span class="theme-sun">☼</span><span class="theme-moon">◐</span></button><a class="nav-resume" href="#contact">CV <span>↗</span></a></div>
+    </div>
+  </header>
 
-    <main>
-        <section id="Home" class="container hero">
-            <div class="hero-content">
-                <div class="status-pill">
-                    <div class="status-dot"></div>
-                    SYSTEM STATUS: ACTIVE
-                </div>
-                <h1>Hello, I'm Hưng <br> <span class="highlight">Fullstack Developer</span></h1>
-                <p>Crafting modern solutions for the digital world through precision engineering, scalable backend logic, and immersive frontend experiences.</p>
-                
-                <div class="hero-actions">
-                    <a href="#projects" class="btn btn-primary">VIEW MY WORK ➔</a>
-                    <a href="#contact" class="btn btn-outline">LET'S CONNECT</a>
-                </div>
-            </div>
-            <div class="hero-image-placeholder"></div>
-        </section>
+  <main>
+    <section id="home" class="hero section-pad"><div class="container hero-grid">
+      <div class="hero-copy reveal"><div class="eyebrow"><span class="eyebrow-line"></span> Software developer / 2026</div><h1>Mình xây những thứ <em>hữu ích</em> cho người thật.</h1><p class="hero-lead">Mình là Hưng — developer định hướng backend/full-stack, thích biến dữ liệu phức tạp thành sản phẩm dễ dùng, đáng tin và có thể vận hành ngoài đời thật.</p><div class="hero-actions"><a class="button button-primary" href="#projects">Xem dự án <span>↓</span></a><a class="button button-text" href="mailto:hungvanvip@gmail.com">Liên hệ với mình <span>↗</span></a></div><div class="hero-meta"><span><i class="pulse-dot"></i> Đang tìm cơ hội thực tập</span><span class="mono">Đông Triều, Quảng Ninh</span></div></div>
+      <div class="hero-visual reveal reveal-delay-1" aria-label="Minh họa quy trình xây dựng sản phẩm"><div class="visual-orbit orbit-one"></div><div class="visual-orbit orbit-two"></div><div class="visual-spark spark-one">✦</div><div class="visual-spark spark-two">+</div><div class="code-window"><div class="window-bar"><span></span><span></span><span></span><small>product.ts</small></div><div class="code-body"><p><b>01</b> <span class="code-key">const</span> <span class="code-name">product</span> <span>=</span> <span class="code-string">{</span></p><p><b>02</b> &nbsp; <span class="code-name">purpose</span><span>:</span> <span class="code-string">"solve a real need"</span><span>,</span></p><p><b>03</b> &nbsp; <span class="code-name">users</span><span>:</span> <span class="code-number">10000</span><span>+</span><span>,</span></p><p><b>04</b> &nbsp; <span class="code-name">stack</span><span>:</span> <span class="code-string">["Next.js", "Supabase"]</span><span>,</span></p><p><b>05</b> &nbsp; <span class="code-name">status</span><span>:</span> <span class="code-live">"shipping"</span></p><p><b>06</b> <span class="code-string">}</span></p><div class="code-cursor"></div></div></div><div class="visual-note note-top"><span>01</span><strong>Think in systems</strong><small>data · product · people</small></div><div class="visual-note note-bottom"><span class="note-check">✓</span><div><strong>Built & shipped</strong><small>not just a class project</small></div></div></div>
+    </div><div class="container hero-foot"><span class="mono">SCROLL TO EXPLORE</span><span class="scroll-line"></span><span class="mono">01 — 07</span></div></section>
 
-        <section id="projects" class="projects-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Curated Architecture</h2>
-                    <p>Exploring the intersection of scalable backend logic and immersive frontend experiences.</p>
-                </div>
-                
-                <div class="project-grid" id="project-grid">
-                    </div>
-            </div>
-        </section>
+    <section id="about" class="section-pad section-about"><div class="container about-grid"><div class="section-label reveal"><span>01</span><span class="label-rule"></span><span>About me</span></div><div class="about-content reveal reveal-delay-1"><h2>Không bắt đầu từ<br><em>công nghệ.</em> Bắt đầu từ vấn đề.</h2><div class="about-text"><p>Mình đang tự học và phát triển theo hướng Software Developer, tìm kiếm cơ hội thực tập để được làm việc trong một team kỹ thuật thực tế. Điều mình tự tin nhất là đã tự xây dựng và vận hành một sản phẩm web có người dùng thật — không chỉ dừng ở bài tập hay đồ án.</p><p>Mình học Next.js/React qua việc làm sản phẩm, đồng thời tìm hiểu kiến trúc hệ thống, bảo mật ứng dụng và AI/ML như RAG, fine-tuning. Ngoài code, mình là gia sư Toán — một công việc rèn cho mình khả năng giải thích vấn đề khó bằng ngôn ngữ rõ ràng, điều rất hữu ích khi làm việc nhóm và viết tài liệu kỹ thuật.</p></div><a class="inline-link" href="#experience">Xem hành trình của mình <span>↗</span></a></div><div class="about-aside reveal reveal-delay-2"><div class="aside-number">03</div><p>lớp trải nghiệm mình luôn quan tâm</p><div class="aside-list"><span>01</span> Product thinking</div><div class="aside-list"><span>02</span> Data integrity</div><div class="aside-list"><span>03</span> Clear communication</div></div></div></section>
 
-        <section id="skills" class="skills-section">
-            <div class="container">
-                <div class="section-header">
-                    <div class="status-pill">
-                        <div class="status-dot"></div>
-                        SYSTEM CAPABILITIES
-                    </div>
-                    <h2>Technical <span class="highlight">Arsenal</span></h2>
-                    <p>Tổng hợp các công nghệ và kỹ năng chuyên môn được áp dụng trong quá trình xây dựng và phát triển phần mềm.</p>
-                </div>
+    <section id="skills" class="section-pad section-skills"><div class="container"><div class="section-intro reveal"><div class="section-label"><span>02</span><span class="label-rule"></span><span>My toolkit</span></div><h2>Một stack đủ rộng<br>để <em>đào sâu.</em></h2><p>Không chạy theo danh sách dài. Mình chọn công cụ dựa trên vấn đề cần giải quyết và học đủ sâu để hiểu chúng hoạt động cùng nhau thế nào.</p></div><div class="stack-list"><article class="stack-row reveal"><div class="stack-index">01</div><div class="stack-title"><h3>Frontend</h3><p>Giao diện có cấu trúc, responsive và dễ tiếp cận.</p></div><div class="stack-tags"><span>Next.js</span><span>React</span><span>TypeScript</span><span>Tailwind CSS</span></div></article><article class="stack-row reveal"><div class="stack-index">02</div><div class="stack-title"><h3>Backend & API</h3><p>Logic nghiệp vụ rõ ràng, API an toàn, dễ mở rộng.</p></div><div class="stack-tags"><span>PHP / Zend</span><span>Node.js</span><span>REST API</span><span>Python</span></div></article><article class="stack-row reveal"><div class="stack-index">03</div><div class="stack-title"><h3>Data & infra</h3><p>Đặt nền móng tin cậy cho dữ liệu và vận hành.</p></div><div class="stack-tags"><span>Supabase</span><span>PostgreSQL</span><span>Elasticsearch</span><span>ClickHouse</span><span>Kafka</span></div></article><article class="stack-row reveal"><div class="stack-index">04</div><div class="stack-title"><h3>Exploring</h3><p>Học bằng cách xây, kiểm thử và tự debug.</p></div><div class="stack-tags"><span>AI / ML</span><span>RAG</span><span>Pentest</span><span>Scrapy</span><span>Git / GitLab</span></div></article></div></div></section>
 
-                <div class="arsenal-grid">
-                    
-                    <div class="skill-card">
-                        <div class="card-header-top">
-                            <div class="icon-box">🖥️</div>
-                            <span class="layer-text">PRESENTATION TIER</span>
-                        </div>
-                        <h4>Frontend Architecture</h4>
-                        <div class="tech-tags">
-                            <span>HTML</span><span>CSS</span><span>JS</span><span>ReactJS</span><span>NextJS</span><span>TailwindCSS</span>
-                        </div>
-                        <p class="skill-desc">Thiết kế và chuyển đổi các bản mock-up thành giao diện thực tế. Tập trung vào việc xây dựng giao diện cơ bản, bố cục hợp lý, tính tương tác cao và đảm bảo tính dễ sử dụng (UX/UI thân thiện).</p>
-                    </div>
+<section id="experience" class="section-pad section-experience"><div class="container experience-grid"><div class="section-label reveal"><span>03</span><span class="label-rule"></span><span>Experience</span></div><div class="experience-groups reveal reveal-delay-1"><div class="experience-group experience-group-professional"><div class="experience-group-heading"><span class="mono">01</span><h3 class="experience-group-title">Chuyên môn</h3></div><div class="timeline"><article class="timeline-item experience-item-university"><div class="timeline-date mono">2023 — nay</div><div class="timeline-marker"></div><div class="timeline-body"><p class="role-kicker">Đại học Công nghệ — Đại học Quốc gia Hà Nội</p><h3>Sinh viên Công nghệ thông tin</h3><p>Học tập và phát triển nền tảng về lập trình, cơ sở dữ liệu, kiến trúc hệ thống và quy trình phát triển phần mềm. Mình chủ động củng cố kiến thức bằng cách xây dựng các sản phẩm thực tế và đọc tài liệu kỹ thuật.</p><div class="experience-tags"><span>Computer Science</span><span>Systems</span><span>Self-learning</span></div></div></article><article class="timeline-item experience-item-v2secure"><div class="timeline-date mono">04/2026 — 09/2026</div><div class="timeline-marker"></div><div class="timeline-body"><p class="role-kicker">CÔNG TY CỔ PHẦN AN TOÀN THÔNG TIN VIỆT NAM V2 · V2SECURE</p><h3>Software Developer Intern</h3><p>Tham gia trực tiếp vào quá trình phát triển các giải pháp an toàn thông tin như SIEM và EDR. Công việc tập trung vào xây dựng, hoàn thiện giao diện hiển thị dữ liệu giám sát; tối ưu truy vấn Elasticsearch để tìm kiếm và tổng hợp log hiệu quả; đồng thời làm việc trong môi trường Linux, xử lý lỗi và kiểm tra các luồng hoạt động của hệ thống.</p><div class="experience-tags"><span>SIEM</span><span>EDR</span><span>Elasticsearch</span><span>Linux</span><span>Frontend</span></div></div></article></div></div><div class="experience-group experience-group-skills"><div class="experience-group-heading"><span class="mono">02</span><h3 class="experience-group-title">Kỹ năng</h3></div><div class="timeline"><article class="timeline-item experience-item-tutoring"><div class="timeline-date mono">Domain</div><div class="timeline-marker"></div><div class="timeline-body"><p class="role-kicker">Education domain knowledge</p><h3>Tư duy giáo dục & giao tiếp</h3><p>Có nền tảng hiểu biết về giáo dục thông qua việc trực tiếp giảng dạy, biên soạn tài liệu và điều chỉnh cách truyền đạt theo từng đối tượng. Kinh nghiệm này giúp mình phân tích nhu cầu người dùng, giao tiếp rõ ràng, đồng cảm với người dùng và biến vấn đề phức tạp thành quy trình dễ hiểu — những năng lực có thể áp dụng trực tiếp khi phát triển sản phẩm IT.</p><div class="experience-tags"><span>Education domain</span><span>User empathy</span><span>Communication</span><span>Teamwork</span><span>English reading</span></div></div></article></div></div></div></div></section>
 
-                    <div class="skill-card">
-                        <div class="card-header-top">
-                            <div class="icon-box">⚙️</div>
-                            <span class="layer-text">APPLICATION TIER</span>
-                        </div>
-                        <h4>Backend Logic & API</h4>
-                        <div class="tech-tags">
-                            <span>NodeJS</span><span>Python</span><span>Java</span><span>C++</span>
-                        </div>
-                        <p class="skill-desc">Xây dựng máy chủ và phát triển các RESTful API. Code vững các chức năng xử lý nghiệp vụ, thao tác CRUD, và triển khai các luồng xác thực người dùng an toàn (JWT, Google Auth).</p>
-                    </div>
+    <section id="projects" class="section-pad section-projects"><div class="container"><div class="projects-heading reveal"><div><div class="section-label"><span>04</span><span class="label-rule"></span><span>Selected projects</span></div><h2>Những thứ mình đã<br><em>đưa ra ngoài đời.</em></h2></div><p>Những dự án xuất phát từ nhu cầu rất cụ thể — từ một lần tra cứu điểm thi đến cả vòng đời của một đề Toán — và buộc mình phải nghĩ như một người xây sản phẩm.</p></div>
+      <div class="project-feature project-math-exam reveal"><div class="project-visual exam-visual"><div class="visual-label mono">FEATURED BUILD / FULL-STACK</div><div class="exam-orbit exam-orbit-one"></div><div class="exam-orbit exam-orbit-two"></div><div class="exam-dashboard"><div class="exam-window-bar"><span class="exam-window-title">teacher workspace</span><span class="exam-live-dot">● pipeline ready</span></div><div class="exam-flow"><div><b>01</b><span>PDF / DOCX</span><small>upload</small></div><i>→</i><div class="flow-active"><b>02</b><span>OCR + review</span><small>quality gate</small></div><i>→</i><div><b>03</b><span>question bank</span><small>publish</small></div></div><div class="exam-stats"><div><strong>3</strong><span>question types</span></div><div><strong>∞</strong><span>snapshots kept</span></div><div><strong>1</strong><span>source of truth</span></div></div><div class="exam-progress"><span>exam session</span><b></b><em>autosave · secure</em></div></div><div class="exam-badge badge-top">TEACHER<br><strong>review first</strong></div><div class="exam-badge badge-bottom">STUDENT<br><strong>learn from data</strong></div><div class="exam-equation mono">∫ f(x) dx → score</div></div><div class="project-detail"><div class="project-topline"><span class="project-number">01</span><span class="project-status status-featured">● Featured build</span></div><h3>MathExam Platform</h3><p class="project-summary">Một nền tảng luyện thi Toán THPT biến đề thi rời rạc thành một quy trình có thể kiểm soát: giáo viên đưa tài liệu vào, hệ thống hỗ trợ đọc và review, rồi học sinh làm bài trên dữ liệu đã được publish.</p><div class="project-role-block"><span>Vai trò</span><strong>Full-stack · System design · OCR workflow · Auth/RBAC</strong></div><div class="project-tech"><span>Next.js</span><span>Spring Boot</span><span>PostgreSQL</span><span>FastAPI</span><span>RabbitMQ</span><span>MinIO</span><span>Docker</span></div><ul class="project-points"><li>Xây luồng giáo viên upload → lưu object private → xử lý bất đồng bộ → review câu hỏi OCR → đưa câu đã duyệt vào ngân hàng câu hỏi và tạo đề nháp.</li><li>Thiết kế vòng đời đề rõ ràng: chỉ câu hỏi đã publish mới vào đề publish; nội dung và đáp án được snapshot bất biến để lịch sử làm bài không bị thay đổi.</li><li>Cung cấp luồng học sinh start, autosave, submit và chấm điểm phía server, cùng kết quả, lịch sử, analytics, leaderboard và achievements.</li><li>Giữ fidelity cho đề Toán: native PDF extraction khi có thể, scan fallback, LaTeX, bảng, hình và reading order; quality gate retry có giới hạn rồi chuyển <em>needs_manual_review</em>.</li></ul><div class="project-actions"><a class="button button-primary button-small" href="https://github.com/23021584-NguyenVanHung-UET/math-exam-platform" target="_blank" rel="noreferrer">Xem repository <span>↗</span></a><button class="button button-text button-small project-more" type="button" data-project="math-exam">Đọc case study <span>↗</span></button></div></div></div>
+      <div class="project-feature project-blue reveal"><div class="project-visual score-visual"><div class="visual-label mono">DATA PRODUCT / 2026</div><div class="score-browser"><div class="browser-top"><i></i><i></i><i></i><small>thpt-score-explorer</small></div><div class="browser-content"><div class="browser-brand">score<span>explorer</span><b>2026</b></div><div class="search-bar"><span>⌕</span> Nhập số báo danh <strong>Tra cứu</strong></div><div class="result-row"><span>Nguyễn V. A.</span><b>8.75</b></div><div class="result-row faded"><span>Toán / Văn / Ngoại ngữ</span><b>Đã cập nhật</b></div></div></div><div class="visual-metric"><strong>13k+</strong><span>hồ sơ<br>đã xử lý</span></div></div><div class="project-detail"><div class="project-topline"><span class="project-number">02</span><span class="project-status">● Live product</span></div><h3>THPT Score Explorer 2026</h3><p class="project-summary">Hệ thống thu thập, xử lý, phân tích và tra cứu điểm thi vào lớp 10 Quảng Ninh 2026 bằng Next.js, TypeScript, Supabase PostgreSQL và Python.</p><div class="project-role-block"><span>Vai trò</span><strong>Full-stack · Data engineering · API · Deployment</strong></div><div class="project-tech"><span>Next.js 16</span><span>React 19</span><span>TypeScript</span><span>Tailwind CSS</span><span>Supabase</span><span>PostgreSQL RPC</span><span>Python</span><span>AES-GCM</span></div><ul class="project-points"><li>Xây crawler Python xử lý request/response mã hóa AES-GCM, quét dải số báo danh bằng ThreadPoolExecutor và chuẩn hóa dữ liệu về một cấu trúc thống nhất.</li><li>Tiền xử lý 13.290 thí sinh từ 23 hội đồng/trường thi, tính tổ hợp điểm, thứ hạng trong trường/toàn tỉnh và phân bố điểm bằng PostgreSQL.</li><li>Cung cấp tra cứu SBD 8 chữ số qua <em>/api/lookup</em>, cache kết quả 24 giờ và xử lý các trạng thái chưa có dữ liệu một cách rõ ràng.</li><li>Có trang theo dõi crawl và admin dashboard; tách dữ liệu raw khỏi dataset public, loại bỏ trường nhạy cảm trước khi phục vụ frontend.</li></ul><div class="project-actions"><a class="button button-primary button-small" href="https://thpt2026-iota.vercel.app/">Hỏi về demo <span>↗</span></a><button class="button button-text button-small project-more" type="button" data-project="scores">Xem case study <span>↗</span></button></div></div></div>
+      <article class="project-small project-old project-smartshop reveal"><div class="old-project-visual" aria-hidden="true"><span class="old-project-mark mono">SHOP / JWT</span><span class="old-project-orbit"></span></div><div><div class="project-topline"><span class="project-number">03</span><span class="project-status status-muted">● Project</span></div><h3>SmartShop AI - E-Commerce</h3><p class="project-old-description">Phát triển giao diện thương mại điện tử hiện đại, tập trung vào trải nghiệm duyệt sản phẩm, bố cục UI/UX và hiệu suất hiển thị. Mình xây dựng luồng đăng ký/đăng nhập bằng JWT để người dùng có thể xác thực an toàn trong toàn bộ quá trình sử dụng ứng dụng.</p><div class="project-tech"><span>Next.js</span><span>Frontend</span><span>JWT Auth</span></div><div class="project-actions"><a class="button button-outline button-small" href="https://github.com/23021584-NguyenVanHung-UET/SmartShopAIVersion2" target="_blank" rel="noreferrer">Xem repository <span>↗</span></a></div></div></article>
+      <article class="project-small project-old project-food reveal"><div class="old-project-visual" aria-hidden="true"><span class="old-project-mark mono">ORDER / API</span><span class="old-project-orbit"></span></div><div><div class="project-topline"><span class="project-number">04</span><span class="project-status status-muted">● Project</span></div><h3>FoodDelivery Platform</h3><p class="project-old-description">Xây dựng backend cho nền tảng đặt đồ ăn, tập trung tổ chức các luồng nghiệp vụ giữa người dùng, món ăn và đơn hàng. Hệ thống có phân quyền Admin/User và tích hợp Google OAuth2, giúp tách rõ quyền quản trị khỏi trải nghiệm đặt món của người dùng.</p><div class="project-tech"><span>Java</span><span>Backend</span><span>Google Auth</span></div><div class="project-actions"><a class="button button-outline button-small" href="https://github.com/buiductrong01012005/foodDelivery" target="_blank" rel="noreferrer">Xem repository <span>↗</span></a></div></div></article>
+      <article class="project-small project-old project-library reveal"><div class="old-project-visual" aria-hidden="true"><span class="old-project-mark mono">CRUD / BOOKS</span><span class="old-project-orbit"></span></div><div><div class="project-topline"><span class="project-number">05</span><span class="project-status status-muted">● Project</span></div><h3>Hệ thống Quản lý Thư viện</h3><p class="project-old-description">Thiết kế backend cho hệ thống quản lý thư viện, xoay quanh luồng mượn/trả sách và theo dõi trạng thái tài liệu. Project triển khai quản lý tài khoản cùng các thao tác CRUD cốt lõi, đồng thời tổ chức logic nghiệp vụ để dữ liệu sách được quản lý nhất quán.</p><div class="project-tech"><span>Java</span><span>Core Backend</span><span>CRUD</span></div><div class="project-actions"><a class="button button-outline button-small" href="https://github.com/23021584-NguyenVanHung-UET/BTL-OOP" target="_blank" rel="noreferrer">Xem repository <span>↗</span></a></div></div></article>
+    </div></section>
 
-                    <div class="skill-card">
-                        <div class="card-header-top">
-                            <div class="icon-box">🗄️</div>
-                            <span class="layer-text">DATA TIER</span>
-                        </div>
-                        <h4>Database Engineering</h4>
-                        <div class="tech-tags">
-                            <span>MySQL</span><span>PostgreSQL</span>
-                        </div>
-                        <p class="skill-desc">Hiểu rõ nguyên lý thiết kế và chuẩn hóa cơ sở dữ liệu quan hệ. Có khả năng viết và tối ưu hóa các câu lệnh truy vấn phức tạp để trích xuất và xử lý dữ liệu hiệu quả.</p>
-                    </div>
+    <section id="education" class="section-pad section-education"><div class="container education-grid"><div class="section-label reveal"><span>05</span><span class="label-rule"></span><span>Education</span></div><div class="education-main reveal reveal-delay-1"><div class="education-item"><span class="mono education-year">2023 — 2027</span><div><h3>Đại học Công nghệ — ĐHQGHN</h3><p>Sinh viên ngành Công nghệ thông tin</p><span class="education-note">Học qua việc xây sản phẩm, đọc tài liệu kỹ thuật và tự đặt câu hỏi.</span></div></div><div class="education-item"><span class="mono education-year">ongoing</span><div><h3>Independent learning</h3><p>TryHackMe · Next.js / React · AI/ML ứng dụng</p><span class="education-note">Pentest cơ bản, kiến trúc hệ thống, RAG và fine-tuning.</span></div></div></div></div></section>
 
-                    <div class="skill-card">
-                        <div class="card-header-top">
-                            <div class="icon-box">🛡️</div>
-                            <span class="layer-text">INFRA & SECURITY</span>
-                        </div>
-                        <h4>Tools & Web Security</h4>
-                        <div class="tech-tags">
-                            <span>Docker</span><span>GitHub</span><span>Postman</span><span>Pentest</span>
-                        </div>
-                        <p class="skill-desc">Sử dụng thành thạo các công cụ quản lý source code (GitHub) và kiểm thử API (Postman). Nắm bắt các kỹ thuật bảo mật web cơ bản, hiểu cách phòng chống các chủng lỗi phổ biến như SQL Injection, Cross-site Scripting,...</p>
-                    </div>
+    <section id="contact" class="section-pad section-contact"><div class="container contact-wrap reveal"><div class="section-label"><span>06</span><span class="label-rule"></span><span>Get in touch</span></div><div class="contact-grid"><div><h2>Cùng xây một thứ<br><em>đáng để dùng.</em></h2><p>Mình đang tìm cơ hội thực tập Software Developer và luôn sẵn sàng trò chuyện về sản phẩm, backend, dữ liệu hoặc một ý tưởng thú vị.</p><a class="button button-primary" href="mailto:hungvanvip@gmail.com">Gửi email cho Hưng <span>↗</span></a></div><div class="contact-links"><a href="mailto:hungvanvip@gmail.com"><span class="contact-label mono">EMAIL</span><strong>hungvanvip@gmail.com</strong><span>↗</span></a><a href="tel:0868932205"><span class="contact-label mono">PHONE / ZALO</span><strong>0868 932 205</strong><span>↗</span></a><a href="https://github.com/23021584-NguyenVanHung-UET" target="_blank" rel="noreferrer"><span class="contact-label mono">GITHUB</span><strong>github.com/23021584-NguyenVanHung-UET</strong><span>↗</span></a><a href="https://www.facebook.com/nguyen.van.hung.46654" target="_blank" rel="noopener noreferrer"><span class="contact-label mono">FACEBOOK</span><strong>facebook.com/nguyen.van.hung.46654</strong><span>↗</span></a><a href="mailto:hungvanvip@gmail.com?subject=Y%C3%AAu%20c%E1%BA%A7u%20CV%20c%E1%BB%A7a%20H%C6%B0ng"><span class="contact-label mono">CV / PDF</span><strong>Yêu cầu bản CV</strong><span>↗</span></a></div></div></div></section>
+  </main>
 
-                    <div class="skill-card full-width">
-                        <div class="card-header-top">
-                            <div class="icon-box">🧠</div>
-                            <span class="layer-text">SPECIALIZED DOMAIN</span>
-                        </div>
-                        <h4>Artificial Intelligence & Machine Learning</h4>
-                        <div class="tech-tags">
-                            <span>AI</span><span>ML</span>
-                        </div>
-                        <p class="skill-desc">Có kiến thức về AI và ML, hiểu được các thuật toán cơ bản và cách ứng dụng chúng vào giải quyết các bài toán thực tế.</p>
-                    </div>
-                    
-                </div>
-            </div>
-        </section>
+  <footer class="site-footer"><div class="container footer-inner"><span>© 2026 Hưng Nguyễn</span><span class="footer-note">Designed & built with curiosity <span>✦</span></span><a href="#home">Back to top ↑</a></div></footer>
 
-        <section id="contact" class="contact-section">
-            <div class="container">
-                <div class="section-header center-header">
-                    <div class="status-pill">
-                        <div class="status-dot"></div>
-                        COMMUNICATION CHANNELS
-                    </div>
-                    <h2>Initiate <span class="highlight">Connection</span></h2>
-                    <p>Bạn có dự án cần hợp tác, tìm kiếm thành viên cho team, hay đơn giản là muốn trao đổi về công nghệ? Hãy liên hệ với tôi qua các kênh dưới đây.</p>
-                </div>
-
-                <div class="contact-grid">
-                    <a href="mailto:hungvanvip@gmail.com" class="contact-card">
-                        <div class="contact-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                        </div>
-                        <div class="contact-details">
-                            <h4>Email Direct</h4>
-                            <p>hungvanvip@gmail.com</p>
-                        </div>
-                        <div class="contact-arrow">➔</div>
-                    </a>
-
-                    <a href="tel:0868932205" class="contact-card">
-                        <div class="contact-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                        </div>
-                        <div class="contact-details">
-                            <h4>Phone / Zalo</h4>
-                            <p>0868.932.205</p>
-                        </div>
-                        <div class="contact-arrow">➔</div>
-                    </a>
-
-                    <a href="https://www.facebook.com/nguyen.van.hung.46654" target="_blank" class="contact-card">
-                        <div class="contact-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-                        </div>
-                        <div class="contact-details">
-                            <h4>Social Profile</h4>
-                            <p>Facebook</p>
-                        </div>
-                        <div class="contact-arrow">➔</div>
-                    </a>
-                </div>
-            </div>
-        </section>        
-    </main>
-
-    <div id="footer-placeholder"></div>
-
-    <script src="js/utils.js"></script>
-    <script src="js/typing.js"></script> 
-    <script src="js/main.js"></script>
+  <dialog id="project-dialog" class="project-dialog" aria-labelledby="dialog-title"><button class="dialog-close" type="button" aria-label="Đóng">×</button><div class="dialog-kicker mono">CASE STUDY / <span id="dialog-number">01</span></div><h2 id="dialog-title"></h2><p id="dialog-copy"></p><div class="dialog-divider"></div><p class="dialog-note">Chi tiết kỹ thuật đang được cập nhật cùng quá trình phát triển sản phẩm.</p></dialog>
+  <script src="js/main.js"></script>
 </body>
 </html>

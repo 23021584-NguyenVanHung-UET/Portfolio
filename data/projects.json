@@ -1,23 +1,20 @@
 [
   {
-    "title": "SmartShopAI - E-Commerce",
+    "title": "SmartShop AI - E-Commerce",
     "description": "Phát triển giao diện người dùng (UI/UX) hiện đại và hiệu suất cao. Xây dựng luồng xác thực người dùng (Authentication flow) an toàn, tích hợp đăng nhập/đăng ký sử dụng chuẩn JWT.",
     "tags": ["Next.js", "Frontend", "JWT Auth"],
-    "image": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=800",
     "github": "https://github.com/23021584-NguyenVanHung-UET/SmartShopAIVersion2"
   },
   {
     "title": "FoodDelivery Platform",
     "description": "Xây dựng kiến trúc backend xử lý nghiệp vụ đặt đồ ăn. Thiết kế hệ thống phân quyền chi tiết (Admin/User) và tích hợp đăng nhập an toàn qua bên thứ ba (Google OAuth2).",
     "tags": ["Java", "Backend", "Google Auth"],
-    "image": "https://images.unsplash.com/photo-1526367790999-0150786686a2?auto=format&fit=crop&q=80&w=800",
     "github": "https://github.com/buiductrong01012005/foodDelivery"
   },
   {
     "title": "Hệ thống Quản lý Thư viện",
     "description": "Dự án nền tảng thiết kế backend quản lý luồng dữ liệu mượn/trả sách. Xây dựng các tính năng cốt lõi như quản lý tài khoản, theo dõi trạng thái tài liệu và xử lý logic nghiệp vụ.",
     "tags": ["Java", "Core Backend", "CRUD"],
-    "image": "https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&q=80&w=800",
     "github": "https://github.com/23021584-NguyenVanHung-UET/BTL-OOP"
   }
 ]
