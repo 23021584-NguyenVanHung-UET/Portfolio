@@ -1,20 +1,19 @@
 [
   {
-    "title": "SmartShop AI - E-Commerce",
-    "description": "Phát triển giao diện người dùng (UI/UX) hiện đại và hiệu suất cao. Xây dựng luồng xác thực người dùng (Authentication flow) an toàn, tích hợp đăng nhập/đăng ký sử dụng chuẩn JWT.",
-    "tags": ["Next.js", "Frontend", "JWT Auth"],
-    "github": "https://github.com/23021584-NguyenVanHung-UET/SmartShopAIVersion2"
+    "title": "THPT Score Explorer 2026",
+    "description": "Hệ thống web thu thập, chuẩn hóa, phân tích và tra cứu điểm thi vào lớp 10 Quảng Ninh 2026. Crawler kiểm tra dữ liệu từ nguồn chính thức, xử lý 13.290 hồ sơ và phục vụ lookup qua API có cache.",
+    "tags": ["Next.js", "Supabase", "Scrapy", "PostgreSQL", "Vercel"],
+    "demo": "https://thpt2026-iota.vercel.app/"
   },
   {
-    "title": "FoodDelivery Platform",
-    "description": "Xây dựng kiến trúc backend xử lý nghiệp vụ đặt đồ ăn. Thiết kế hệ thống phân quyền chi tiết (Admin/User) và tích hợp đăng nhập an toàn qua bên thứ ba (Google OAuth2).",
-    "tags": ["Java", "Backend", "Google Auth"],
-    "github": "https://github.com/buiductrong01012005/foodDelivery"
+    "title": "Structured Document → Editable Word",
+    "description": "Pipeline Python chuyển tài liệu ảnh/PDF có công thức, bảng và hình minh họa thành Word có thể chỉnh sửa. Rule-based pre-filter, confidence cascade và AI review loop xử lý layout nhiều cột.",
+    "tags": ["Python", "PaddleOCR", "MathML", "OMML", "DOCX"]
   },
   {
-    "title": "Hệ thống Quản lý Thư viện",
-    "description": "Dự án nền tảng thiết kế backend quản lý luồng dữ liệu mượn/trả sách. Xây dựng các tính năng cốt lõi như quản lý tài khoản, theo dõi trạng thái tài liệu và xử lý logic nghiệp vụ.",
-    "tags": ["Java", "Core Backend", "CRUD"],
-    "github": "https://github.com/23021584-NguyenVanHung-UET/BTL-OOP"
+    "title": "MathExam Platform",
+    "description": "Pipeline xử lý tài liệu có cấu trúc, question bank và exam session. Hệ thống ưu tiên native PDF extraction, có scan fallback và giữ lại LaTeX, bảng, hình cùng cảnh báo uncertainty.",
+    "tags": ["Spring Boot", "FastAPI", "PostgreSQL", "RabbitMQ", "MinIO"],
+    "github": "https://github.com/23021584-NguyenVanHung-UET/math-exam-platform"
   }
 ]

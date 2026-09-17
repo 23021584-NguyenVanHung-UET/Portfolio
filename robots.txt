@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://portfolio-23021584-nguyenvanhung-uets-projects.vercel.app/sitemap.xml

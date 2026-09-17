@@ -14,3 +14,7 @@
 @media (max-width: 560px) {
   .exam-dashboard { width: 88%; padding: 15px 13px 17px; }.exam-window-bar { padding-bottom: 11px; font-size: .47rem; }.exam-live-dot { font-size: .41rem; }.exam-flow { grid-template-columns: 1fr 10px 1fr 10px 1fr; gap: 3px; padding: 18px 0 15px; }.exam-flow span { font-size: .45rem; }.exam-flow small { font-size: .39rem; }.exam-flow i { font-size: .7rem; }.exam-flow .flow-active { padding: 7px 4px; }.exam-stats { gap: 4px; }.exam-stats div { padding: 7px 4px; }.exam-stats strong { font-size: 1.05rem; }.exam-stats span { font-size: .37rem; }.exam-progress { grid-template-columns: 1fr auto; gap: 6px; margin-top: 14px; }.exam-progress b { grid-column: 1 / -1; grid-row: 2; }.exam-progress em { font-size: .4rem; }.badge-top { top: 57px; left: 12px; }.badge-bottom { right: 12px; bottom: 63px; }.exam-badge { padding: 8px 9px; font-size: .41rem; }.exam-badge strong { font-size: .46rem; }.exam-equation { right: 13px; bottom: 20px; font-size: .47rem; }.dialog-highlights { gap: 11px; }.dialog-highlight span { font-size: .72rem; }
 }
+
+@media (max-width: 560px) {
+  .project-proof-visual { padding: 58px 18px 22px; }.project-proof-gallery { gap: 7px; }.proof-placeholder { min-height: 125px; padding: 10px 5px; }.proof-placeholder span { margin-bottom: 10px; font-size: .58rem; }.proof-placeholder strong { font-size: .45rem; }.proof-placeholder small { font-size: .5rem; }.contact-form input, .contact-form textarea { font-size: .78rem; }
+}

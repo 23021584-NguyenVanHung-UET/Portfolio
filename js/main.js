@@ -62,52 +62,75 @@ document.addEventListener('DOMContentLoaded', () => {
     return highlights;
   })();
   const caseStudies = {
-    'math-exam': {
+    scores: {
       number: '01',
       vi: {
-        title: 'Từ một file đề thi đến cả một hệ thống học tập',
-        intro: 'MathExam Platform là project nổi bật nhất của mình vì nó nối nhiều bài toán thật vào cùng một sản phẩm: dữ liệu, OCR, phân quyền, ngân hàng câu hỏi và trải nghiệm làm bài. Mục tiêu không phải chỉ “đọc được đề”, mà là biến đề thi thành dữ liệu có thể review, tái sử dụng, publish và đo lường.',
+        title: 'Từ API mã hóa đến hệ thống tra cứu có người dùng thật',
+        intro: 'THPT Score Explorer 2026 xử lý toàn bộ vòng đời dữ liệu: crawl, kiểm tra, chuẩn hóa, lưu trữ, tra cứu và theo dõi vận hành.',
         highlights: [
-          ['01 / Teacher workflow', 'Upload tài liệu vào object storage private, xử lý bất đồng bộ qua RabbitMQ và worker, sau đó đưa câu hỏi OCR vào PostgreSQL để giáo viên review, approve hoặc reject.'],
-          ['02 / Content integrity', 'PDF có text được ưu tiên native extraction; đề scan dùng nhánh OCR dự phòng. Công thức LaTeX, bảng, hình, reading order và cảnh báo được giữ lại; quality gate chỉ retry trong giới hạn rồi chuyển needs_manual_review.'],
-          ['03 / Exam lifecycle', 'Question Bank hỗ trợ draft/publish/archive, topics và bulk tagging. Chỉ câu hỏi đã publish mới được đưa vào đề publish; nội dung và đáp án được snapshot bất biến để lịch sử làm bài luôn nhất quán.'],
-          ['04 / Student analytics', 'Học sinh start đề, autosave từng câu, submit và nhận điểm do backend quyết định; sau đó xem review, lịch sử, analytics theo chuyên đề, leaderboard và achievements.']
+          ['01 / Data pipeline', 'Crawler Python gửi request song song, giải mã AES-GCM và chuẩn hóa dữ liệu về một schema thống nhất.'],
+          ['02 / Data accuracy', 'Dữ liệu được validate và đối chiếu trước khi ghi vào dataset public. 13.290 hồ sơ từ 23 hội đồng/trường thi được xử lý.'],
+          ['03 / Search performance', 'API kiểm tra SBD 8 chữ số và cache kết quả 24 giờ để giảm tải cho các truy vấn lặp lại.'],
+          ['04 / Result', 'Website đã được deploy trên Vercel và có traffic người dùng thật: [SỐ LIỆU: lượt truy cập / lượt tra cứu].']
         ]
       },
       en: {
-        title: 'From one exam file to a learning system',
-        intro: 'MathExam Platform is my standout project because it connects several real problems in one product: data, OCR, permissions, question banks and the exam-taking experience. The goal is not only to “read an exam”, but to turn it into content that can be reviewed, reused, published and measured.',
+        title: 'From an encrypted API to a product with real users',
+        intro: 'THPT Score Explorer 2026 covers the full data lifecycle: crawling, validation, normalization, storage, lookup and operations.',
         highlights: [
-          ['01 / Teacher workflow', 'Files go to private object storage, move through RabbitMQ and a document worker, then land in PostgreSQL for teachers to review, approve or reject.'],
-          ['02 / Content integrity', 'Text-based PDFs use native extraction first; scans use the OCR fallback. LaTeX formulas, tables, figures, reading order and warnings are preserved; the quality gate retries within a bound, then falls back to needs_manual_review.'],
-          ['03 / Exam lifecycle', 'The Question Bank supports draft/publish/archive, topics and bulk tagging. Only published questions can enter a published exam; immutable snapshots keep past attempts consistent.'],
-          ['04 / Student analytics', 'Students start an exam, autosave each answer, submit and receive server-decided scores, then review results, history, topic analytics, leaderboards and achievements.']
+          ['01 / Data pipeline', 'A Python crawler sends parallel requests, decrypts AES-GCM payloads and normalizes data into one schema.'],
+          ['02 / Data accuracy', 'Records are validated and cross-checked before entering the public dataset. 13,290 records across 23 schools or exam councils were processed.'],
+          ['03 / Search performance', 'The API validates 8-digit candidate numbers and caches results for 24 hours to reduce repeated query load.'],
+          ['04 / Result', 'The website is deployed on Vercel and has real user traffic: [DATA: visits / lookups].']
         ]
       }
     },
-    scores: {
+    ocr: {
       number: '02',
       vi: {
-        title: 'Từ API mã hóa đến một hệ thống tra cứu điểm hoàn chỉnh',
-        intro: 'THPT Score Explorer 2026 giải quyết trọn vòng đời dữ liệu điểm thi vào lớp 10 Quảng Ninh: từ crawl API mã hóa, chuẩn hóa và lưu trữ cho đến tra cứu, ranking, monitoring và quản trị lượt truy cập.',
+        title: 'Giữ cấu trúc khi chuyển PDF thành Word chỉnh sửa được',
+        intro: 'Pipeline OCR xử lý layout nhiều cột, công thức, bảng và hình minh họa trước khi xuất sang định dạng tài liệu chuẩn.',
         highlights: [
-          ['01 / Data pipeline', 'Python crawler gửi request song song bằng ThreadPoolExecutor, giải mã AES-GCM và chuẩn hóa tên môn, hội đồng thi cùng các trường điểm về một schema thống nhất.'],
-          ['02 / Precomputed dataset', '13.290 thí sinh từ 23 hội đồng/trường thi được sort, group và tính thứ hạng trong trường/toàn tỉnh; dataset phục vụ frontend được tách khỏi raw data và loại bỏ trường nhạy cảm.'],
-          ['03 / Search & ranking', 'API /api/lookup validate SBD 8 chữ số, trả về điểm từng môn và cache kết quả 24 giờ. PostgreSQL RPC get_rankings xử lý ranking, top percentile và các tổ hợp A00, A01, B00, C00, D01.'],
-          ['04 / Operations', 'Trang /crawl-status theo dõi tiến trình thu thập theo thời gian; admin dashboard hiển thị lượt tra cứu, SBD/IP duy nhất, lịch sử phân trang và tự refresh định kỳ.']
+          ['01 / Layout recovery', 'Rule-based pre-filter kết hợp AI review loop để giảm lỗi ghép giữa text, hình và vị trí trong tài liệu nhiều cột.'],
+          ['02 / Confidence cascade', 'Chỉ gọi model AI mạnh khi confidence không đủ cao, giúp kiểm soát chi phí xử lý.'],
+          ['03 / Editable output', 'Công thức được chuyển sang MathML/OMML để file Word tiếp tục chỉnh sửa được.'],
+          ['04 / Result', 'Kết quả đo lường sẽ được bổ sung: [SỐ LIỆU: độ chính xác / thời gian mỗi tài liệu].']
         ]
       },
       en: {
-        title: 'From an encrypted API to a complete score-exploration system',
-        intro: 'THPT Score Explorer 2026 covers the full data lifecycle for Quảng Ninh grade-10 entrance scores: from encrypted API crawling, normalization and storage to lookup, rankings, monitoring and access analytics.',
+        title: 'Preserving structure while converting PDFs to editable Word',
+        intro: 'An OCR pipeline handles multi-column layouts, formulas, tables and figures before exporting to a standard editable document format.',
         highlights: [
-          ['01 / Data pipeline', 'A Python crawler uses ThreadPoolExecutor for parallel requests, decrypts AES-GCM payloads and normalizes subject names, exam councils and score fields into one schema.'],
-          ['02 / Precomputed dataset', '13,290 students across 23 schools or exam councils are sorted, grouped and ranked by school and province; the frontend dataset is separated from raw data and stripped of sensitive fields.'],
-          ['03 / Search & ranking', 'The /api/lookup route validates 8-digit candidate numbers, returns subject scores and caches results for 24 hours. PostgreSQL RPC get_rankings handles rankings, top percentiles and A00, A01, B00, C00 and D01 combinations.'],
-          ['04 / Operations', 'The /crawl-status page tracks collection progress over time; an admin dashboard shows lookup volume, unique candidate numbers and IPs, paginated history and periodic refreshes.']
+          ['01 / Layout recovery', 'A rule-based pre-filter and AI review loop reduce merge errors between text, figures and positions in multi-column documents.'],
+          ['02 / Confidence cascade', 'A stronger AI model is called only when confidence is too low, keeping processing cost under control.'],
+          ['03 / Editable output', 'Formulas are converted to MathML/OMML so the Word output remains editable.'],
+          ['04 / Result', 'Measured results will be added later: [DATA: accuracy / processing time per document].']
         ]
       }
     },
+    'math-exam': {
+      number: '03',
+      vi: {
+        title: 'Từ tài liệu rời rạc đến pipeline question bank',
+        intro: 'MathExam Platform kết nối extraction, OCR review, question bank và exam session trong một hệ thống có trạng thái rõ ràng.',
+        highlights: [
+          ['01 / Extraction', 'PDF có text dùng native extraction trước; tài liệu scan đi qua OCR fallback.'],
+          ['02 / Fidelity', 'LaTeX, bảng, hình, reading order và cảnh báo uncertainty được giữ lại; lỗi chưa chắc chắn chuyển sang needs_manual_review.'],
+          ['03 / Integrity', 'Question bank và exam snapshot tách biệt để nội dung đã dùng trong lịch sử không bị thay đổi.'],
+          ['04 / Operations', 'Xử lý bất đồng bộ qua RabbitMQ, lưu object private trên MinIO và kiểm soát trạng thái bằng backend.']
+        ]
+      },
+      en: {
+        title: 'From scattered documents to a question-bank pipeline',
+        intro: 'MathExam Platform connects extraction, OCR review, question banks and exam sessions in one system with explicit states.',
+        highlights: [
+          ['01 / Extraction', 'Text-based PDFs use native extraction first; scanned documents use the OCR fallback.'],
+          ['02 / Fidelity', 'LaTeX, tables, figures, reading order and uncertainty warnings are preserved; unclear cases fall back to needs_manual_review.'],
+          ['03 / Integrity', 'Question-bank content and exam snapshots remain separate so historical content cannot change unexpectedly.'],
+          ['04 / Operations', 'RabbitMQ handles asynchronous processing, MinIO stores private objects and the backend controls state transitions.']
+        ]
+      }
+    }
   };
 
   const languagePairs = [
@@ -119,75 +142,68 @@ document.addEventListener('DOMContentLoaded', () => {
     ['.main-nav a:nth-child(6)', 'Liên hệ', 'Contact'],
     ['.eyebrow', 'Software developer / 2026', 'Software developer / 2026'],
     ['.hero-foot .mono:first-child', 'CUỘN ĐỂ KHÁM PHÁ', 'SCROLL TO EXPLORE'],
-    ['.hero h1', 'Mình xây những thứ <em>hữu ích</em> cho người thật.', 'I build things <em>that matter</em> for real people.', true],
-    ['.hero-lead', 'Mình là Hưng — developer định hướng backend/full-stack, thích biến dữ liệu phức tạp thành sản phẩm dễ dùng, đáng tin và có thể vận hành ngoài đời thật.', 'I’m Hưng — a backend/full-stack minded developer who turns complex data into products that are useful, reliable and ready for the real world.'],
+    ['.hero h1', 'Hưng Nguyễn<br><em>Software Developer.</em>', 'Hưng Nguyễn<br><em>Software Developer.</em>', true],
+    ['.hero-lead', 'Tôi xây dựng và vận hành sản phẩm web từ ý tưởng đến khi có người dùng thật — không chỉ code theo yêu cầu có sẵn.', 'I build and operate web products from idea to real users — not only code against a pre-written brief.'],
     ['.hero-actions .button-primary', 'Xem dự án <span>↓</span>', 'See my work <span>↓</span>', true],
-    ['.hero-actions .button-text', 'Liên hệ với mình <span>↗</span>', 'Let’s talk <span>↗</span>', true],
-    ['.hero-meta > span:first-child', 'Đang tìm cơ hội thực tập', 'Open to software developer internships'],
-    ['.hero-meta > span:last-child', 'Đông Triều, Quảng Ninh', 'Dong Trieu, Quang Ninh'],
-    ['.note-top strong', 'Nghĩ theo hệ thống', 'Think in systems'],
-    ['.note-top small', 'data · product · people', 'data · product · people'],
-    ['.note-bottom strong', 'Đã xây & đưa vào chạy', 'Built & shipped'],
-    ['.note-bottom small', 'không chỉ là bài tập', 'not just a class project'],
-    ['.about-content h2', 'Không bắt đầu từ<br><em>công nghệ.</em> Bắt đầu từ vấn đề.', 'I don’t start with<br><em>technology.</em> I start with the problem.', true],
-    ['.about-text p:first-child', 'Mình đang tự học và phát triển theo hướng Software Developer, tìm kiếm cơ hội thực tập để được làm việc trong một team kỹ thuật thực tế. Điều mình tự tin nhất là đã tự xây dựng và vận hành một sản phẩm web có người dùng thật — không chỉ dừng ở bài tập hay đồ án.', 'I’m learning and growing toward a Software Developer role, looking for an internship where I can contribute to a real engineering team. What I’m most confident about is building and operating a web product with real users — beyond a class assignment or school project.'],
-    ['.about-text p:last-child', 'Mình học Next.js/React qua việc làm sản phẩm, đồng thời tìm hiểu kiến trúc hệ thống, bảo mật ứng dụng và AI/ML như RAG, fine-tuning. Ngoài code, mình là gia sư Toán — một công việc rèn cho mình khả năng giải thích vấn đề khó bằng ngôn ngữ rõ ràng, điều rất hữu ích khi làm việc nhóm và viết tài liệu kỹ thuật.', 'I learn Next.js and React by building products, while exploring systems architecture, application security and applied AI/ML such as RAG and fine-tuning. Outside code, I tutor Mathematics — a practice that has taught me to explain difficult ideas clearly, a useful skill for teamwork and technical documentation.'],
-    ['.inline-link', 'Xem hành trình của mình <span>↗</span>', 'See my journey <span>↗</span>', true],
-    ['.section-intro h2', 'Một stack đủ rộng<br>để <em>đào sâu.</em>', 'A stack broad enough<br>to <em>go deep.</em>', true],
-    ['.section-intro > p', 'Không chạy theo danh sách dài. Mình chọn công cụ dựa trên vấn đề cần giải quyết và học đủ sâu để hiểu chúng hoạt động cùng nhau thế nào.', 'I don’t chase long lists. I choose tools based on the problem at hand, then learn them deeply enough to understand how they work together.'],
-    ['.stack-row:nth-child(1) h3', 'Frontend', 'Frontend'], ['.stack-row:nth-child(1) p', 'Giao diện có cấu trúc, responsive và dễ tiếp cận.', 'Structured, responsive and accessible interfaces.'],
-    ['.stack-row:nth-child(2) h3', 'Backend & API', 'Backend & API'], ['.stack-row:nth-child(2) p', 'Logic nghiệp vụ rõ ràng, API an toàn, dễ mở rộng.', 'Clear business logic, secure APIs and room to scale.'],
-    ['.stack-row:nth-child(3) h3', 'Data & infra', 'Data & infra'], ['.stack-row:nth-child(3) p', 'Đặt nền móng tin cậy cho dữ liệu và vận hành.', 'Reliable foundations for data and operations.'],
-    ['.stack-row:nth-child(4) h3', 'Exploring', 'Exploring'], ['.stack-row:nth-child(4) p', 'Học bằng cách xây, kiểm thử và tự debug.', 'Learning by building, testing and debugging.'],
-    ['.experience-group-professional .experience-group-title', 'Chuyên môn', 'Professional experience'],
-    ['.experience-group-skills .experience-group-title', 'Kỹ năng', 'Skills'],
-    ['.experience-item-university .role-kicker', 'Đại học Công nghệ — Đại học Quốc gia Hà Nội', 'University of Engineering and Technology — Vietnam National University, Hanoi'],
-    ['.experience-item-university h3', 'Sinh viên Công nghệ thông tin', 'Computer Science student'],
-    ['.experience-item-university .timeline-body > p:not(.role-kicker)', 'Học tập và phát triển nền tảng về lập trình, cơ sở dữ liệu, kiến trúc hệ thống và quy trình phát triển phần mềm. Mình chủ động củng cố kiến thức bằng cách xây dựng các sản phẩm thực tế và đọc tài liệu kỹ thuật.', 'Building a foundation in programming, databases, systems architecture and software development practices through coursework, real products and technical documentation.'],
-    ['.experience-item-v2secure .role-kicker', 'CÔNG TY CỔ PHẦN AN TOÀN THÔNG TIN VIỆT NAM V2 · V2SECURE', 'V2 Vietnam Information Security Joint Stock Company · V2SECURE'],
-    ['.experience-item-v2secure h3', 'Thực tập sinh Software Developer', 'Software Developer Intern'],
-    ['.experience-item-v2secure .timeline-body > p:not(.role-kicker)', 'Tham gia trực tiếp vào quá trình phát triển các giải pháp an toàn thông tin như SIEM và EDR. Công việc tập trung vào xây dựng, hoàn thiện giao diện hiển thị dữ liệu giám sát; tối ưu truy vấn Elasticsearch để tìm kiếm và tổng hợp log hiệu quả; đồng thời làm việc trong môi trường Linux, xử lý lỗi và kiểm tra các luồng hoạt động của hệ thống.', 'Contributed directly to security solutions such as SIEM and EDR. Worked on interfaces for monitoring data, optimized Elasticsearch queries for efficient log search and aggregation, and worked in Linux environments while debugging and testing system flows.'],
-    ['.experience-item-tutoring .timeline-date', 'Domain', 'Domain knowledge'],
-    ['.experience-item-tutoring .role-kicker', 'Education domain knowledge', 'Education domain knowledge'],
-    ['.experience-item-tutoring h3', 'Tư duy giáo dục & giao tiếp', 'Education domain & communication'],
-    ['.experience-item-tutoring .timeline-body > p:not(.role-kicker)', 'Có nền tảng hiểu biết về giáo dục thông qua việc trực tiếp giảng dạy, biên soạn tài liệu và điều chỉnh cách truyền đạt theo từng đối tượng. Kinh nghiệm này giúp mình phân tích nhu cầu người dùng, giao tiếp rõ ràng, đồng cảm với người dùng và biến vấn đề phức tạp thành quy trình dễ hiểu — những năng lực có thể áp dụng trực tiếp khi phát triển sản phẩm IT.', 'Built education domain knowledge through teaching, preparing learning materials and adapting explanations to different audiences. This helps me analyze user needs, communicate clearly, empathize with users and turn complex problems into understandable workflows — skills I can apply directly to IT product development.'],
+    ['.hero-actions .button-text', 'Tải CV <span>↗</span>', 'Download CV <span>↗</span>', true],
+    ['.hero-meta > span:first-child', 'Đang tìm thực tập Software Developer', 'Open to Software Developer internships'],
+    ['.hero-meta > span:last-child', 'Web · Backend · Data', 'Web · Backend · Data'],
+    ['.note-top strong', 'Tư duy theo hệ thống', 'Think in systems'],
+    ['.note-top small', 'data · product · operations', 'data · product · operations'],
+    ['.note-bottom strong', 'Đã xây & vận hành', 'Built & operated'],
+    ['.note-bottom small', 'chịu trách nhiệm sau khi ship', 'owned the product after launch'],
+    ['.about-content h2', 'Xây sản phẩm.<br><em>Vận hành đến cùng.</em>', 'Build products.<br><em>Operate them end to end.</em>', true],
+    ['.about-text p:nth-child(1)', 'Mình đang tìm cơ hội thực tập Software Developer theo hướng web, backend và full-stack.', 'I’m looking for a Software Developer internship focused on web, backend and full-stack work.'],
+    ['.about-text p:nth-child(2)', 'Mình đã tự triển khai và vận hành website tra cứu điểm thi THPT có traffic người dùng thật, thay vì chỉ dừng ở một bài tập.', 'I deployed and operated a high-school score lookup website with real user traffic, beyond a classroom exercise.'],
+    ['.about-text p:nth-child(3)', 'Mình học Next.js và React bằng cách xây sản phẩm, đọc tài liệu kỹ thuật và tự kiểm thử các luồng bảo mật ứng dụng cơ bản.', 'I learn Next.js and React by building products, reading technical documentation and testing basic application-security flows.'],
+    ['.about-text p:nth-child(4)', 'Mục tiêu tiếp theo là làm việc trong một team có quy trình chuẩn và tham gia các hệ thống lớn hơn.', 'Next, I want to work in a team with a clear engineering process and contribute to larger systems.'],
+    ['.inline-link', 'Xem kinh nghiệm phát triển <span>↗</span>', 'See product-development experience <span>↗</span>', true],
+    ['.section-intro h2', 'Công cụ mình dùng<br>để <em>ship sản phẩm.</em>', 'Tools I use<br>to <em>ship products.</em>', true],
+    ['.section-intro > p', 'Nhóm công nghệ được sắp theo mức độ liên quan đến các project đã triển khai. Không dùng thanh phần trăm khi chưa có dữ liệu đo lường.', 'Technologies are ordered by their relevance to shipped projects. No percentage bars without measured evidence.'],
+    ['.stack-row:nth-child(1) h3', 'Frontend', 'Frontend'], ['.stack-row:nth-child(1) p', 'Xây giao diện web có cấu trúc và responsive.', 'Structured and responsive web interfaces.'],
+    ['.stack-row:nth-child(2) h3', 'Backend & API', 'Backend & API'], ['.stack-row:nth-child(2) p', 'Thiết kế luồng nghiệp vụ và API rõ ràng.', 'Clear business flows and REST APIs.'],
+    ['.stack-row:nth-child(3) h3', 'Dữ liệu & Hạ tầng', 'Data & Infrastructure'], ['.stack-row:nth-child(3) p', 'Lưu trữ, tìm kiếm và vận hành dữ liệu sản phẩm.', 'Storage, search and product-data operations.'],
+    ['.stack-row:nth-child(4) h3', 'Công cụ khác', 'Other tools'], ['.stack-row:nth-child(4) p', 'Tự động hóa, thu thập dữ liệu và triển khai.', 'Automation, data collection and deployment.'],
+    ['.experience-group-title', 'Kinh nghiệm phát triển sản phẩm', 'Product development experience'],
+    ['.experience-item-product .timeline-date', '[KHOẢNG THỜI GIAN]', '[TIME PERIOD]'],
+    ['.experience-item-product .role-kicker', 'Independent product development', 'Independent product development'],
+    ['.experience-item-product h3', 'Tự phát triển & vận hành sản phẩm web độc lập', 'Independent web product development & operations'],
+    ['.experience-item-product .timeline-body > p:nth-of-type(1)', 'Đảm nhiệm toàn bộ vòng đời: thu thập yêu cầu và dữ liệu, thiết kế hệ thống, viết code, deploy và theo dõi vận hành sau khi ra mắt.', 'Owned the full lifecycle: requirements and data collection, system design, coding, deployment and post-launch operations.'],
+    ['.experience-item-product .timeline-body > p:nth-of-type(2)', 'Xử lý traffic tăng đột biến theo mùa vụ và kiểm tra độ chính xác của dữ liệu lấy từ nguồn ngoài bằng các bước validate, đối chiếu và chuẩn hóa.', 'Handled seasonal traffic spikes and checked external-source data through validation, cross-checking and normalization.'],
+    ['.experience-item-product .timeline-body > p:nth-of-type(3)', 'Ra quyết định kỹ thuật độc lập và tiếp tục chịu trách nhiệm với sản phẩm sau khi ship.', 'Made independent technical decisions and remained responsible for the product after launch.'],
     ['.projects-heading h2', 'Những thứ mình đã<br><em>đưa ra ngoài đời.</em>', 'Things I’ve<br><em>shipped into the world.</em>', true],
-    ['.projects-heading > p', 'Những dự án xuất phát từ nhu cầu rất cụ thể — từ một lần tra cứu điểm thi đến cả vòng đời của một đề Toán — và buộc mình phải nghĩ như một người xây sản phẩm.', 'Projects born from very specific needs — from one exam-result lookup to the full lifecycle of a mathematics exam — and built with a product mindset.'],
-    ['.project-math-exam .project-status', '● Dự án nổi bật', '● Featured build'],
+    ['.projects-heading > p', 'Ba project cho thấy cách mình đi từ bài toán dữ liệu và tài liệu đến sản phẩm có thể dùng, đo lường và vận hành.', 'Three projects showing how I turn data and document problems into products that can be used, measured and operated.'],
+    ['.project-score .project-status', '● Đang hoạt động', '● Live product'],
+    ['.project-score .project-summary', 'Một hệ thống web thu thập, chuẩn hóa, phân tích và tra cứu điểm thi vào lớp 10 Quảng Ninh 2026.', 'A web system for collecting, normalizing, analyzing and exploring Quảng Ninh 2026 grade-10 entrance scores.'],
+    ['.project-ocr .project-status', '● Bản build kỹ thuật', '● Technical build'],
+    ['.project-ocr .project-summary', 'Một pipeline chuyển tài liệu ảnh/PDF có công thức, bảng và hình minh họa thành văn bản Word có thể chỉnh sửa, giữ reading order và cấu trúc nội dung.', 'A pipeline that converts image/PDF documents with formulas, tables and figures into editable Word documents while preserving reading order and structure.'],
+    ['.project-ocr .project-more', 'Đọc case study <span>↗</span>', 'Read case study <span>↗</span>', true],
+    ['.project-math-exam .project-status', '● Project', '● Project'],
     ['.project-math-exam h3', 'MathExam Platform', 'MathExam Platform'],
-    ['.project-math-exam .project-summary', 'Một nền tảng luyện thi Toán THPT biến đề thi rời rạc thành một quy trình có thể kiểm soát: giáo viên đưa tài liệu vào, hệ thống hỗ trợ đọc và review, rồi học sinh làm bài trên dữ liệu đã được publish.', 'A high-school mathematics exam platform that turns scattered exam files into a controlled workflow: teachers bring content in, the system supports extraction and review, and students take exams from published data.'],
-    ['.project-math-exam .project-role-block span', 'Vai trò', 'Role'],
-    ['.project-math-exam .project-role-block strong', 'Full-stack · System design · OCR workflow · Auth/RBAC', 'Full-stack · System design · OCR workflow · Auth/RBAC'],
-    ['.project-math-exam .project-points li:nth-child(1)', 'Xây luồng giáo viên upload → lưu object private → xử lý bất đồng bộ → review câu hỏi OCR → đưa câu đã duyệt vào ngân hàng câu hỏi và tạo đề nháp.', 'Built the teacher flow from upload and private object storage to asynchronous processing, OCR review, question-bank import and draft exam creation.'],
-    ['.project-math-exam .project-points li:nth-child(2)', 'Thiết kế vòng đời đề rõ ràng: chỉ câu hỏi đã publish mới vào đề publish; nội dung và đáp án được snapshot bất biến để lịch sử làm bài không bị thay đổi.', 'Designed a clear exam lifecycle: only published questions enter published exams, while immutable content and answer snapshots keep past attempts consistent.'],
-    ['.project-math-exam .project-points li:nth-child(3)', 'Cung cấp luồng học sinh start, autosave, submit và chấm điểm phía server, cùng kết quả, lịch sử, analytics, leaderboard và achievements.', 'Students can start, autosave, submit and receive server-side scores, then explore results, history, analytics, leaderboards and achievements.'],
-    ['.project-math-exam .project-points li:nth-child(4)', 'Giữ fidelity cho đề Toán: native PDF extraction khi có thể, scan fallback, LaTeX, bảng, hình và reading order; quality gate retry có giới hạn rồi chuyển needs_manual_review.', 'Preserved exam fidelity through native PDF extraction where possible, scan fallback, LaTeX, tables, figures and reading order; a bounded quality gate falls back to needs_manual_review.'],
+    ['.project-math-exam .project-old-description', 'Xây dựng pipeline xử lý tài liệu có cấu trúc, question bank và exam session. Hệ thống ưu tiên native PDF extraction, có scan fallback, lưu LaTeX, bảng, hình và cảnh báo uncertainty.', 'Built a structured-document pipeline, question bank and exam session. The system prioritizes native PDF extraction, uses an OCR fallback and preserves LaTeX, tables, figures and uncertainty warnings.'],
     ['.project-math-exam .project-actions .button-primary', 'Xem repository <span>↗</span>', 'View repository <span>↗</span>', true],
     ['.project-math-exam .project-more', 'Đọc case study <span>↗</span>', 'Read case study <span>↗</span>', true],
-    ['.project-blue h3', 'THPT Score Explorer 2026', 'THPT Score Explorer 2026'],
-    ['.project-blue .project-summary', 'Hệ thống thu thập, xử lý, phân tích và tra cứu điểm thi vào lớp 10 Quảng Ninh 2026 bằng Next.js, TypeScript, Supabase PostgreSQL và Python.', 'A Next.js, TypeScript, Supabase PostgreSQL and Python system for collecting, processing, analyzing and exploring Quảng Ninh 2026 grade-10 entrance scores.'],
-    ['.project-blue .project-role-block span', 'Vai trò', 'Role'], ['.project-blue .project-role-block strong', 'Full-stack · Data engineering · API · Deployment', 'Full-stack · Data engineering · API · Deployment'],
-    ['.project-blue .project-points li:nth-child(1)', 'Xây crawler Python xử lý request/response mã hóa AES-GCM, quét dải số báo danh bằng ThreadPoolExecutor và chuẩn hóa dữ liệu về một cấu trúc thống nhất.', 'Built a Python crawler that handles AES-GCM encrypted requests and responses, scans candidate-number ranges with ThreadPoolExecutor and normalizes data into one schema.'],
-    ['.project-blue .project-points li:nth-child(2)', 'Tiền xử lý 13.290 thí sinh từ 23 hội đồng/trường thi, tính tổ hợp điểm, thứ hạng trong trường/toàn tỉnh và phân bố điểm bằng PostgreSQL.', 'Preprocessed 13,290 students across 23 schools or exam councils, calculating score combinations, school/province rankings and score distributions with PostgreSQL.'],
-    ['.project-blue .project-points li:nth-child(3)', 'Cung cấp tra cứu SBD 8 chữ số qua /api/lookup, cache kết quả 24 giờ và xử lý các trạng thái chưa có dữ liệu một cách rõ ràng.', 'Provided 8-digit candidate-number lookup through /api/lookup, cached results for 24 hours and handled missing-data states clearly.'],
-    ['.project-blue .project-points li:nth-child(4)', 'Có trang theo dõi crawl và admin dashboard; tách dữ liệu raw khỏi dataset public, loại bỏ trường nhạy cảm trước khi phục vụ frontend.', 'Added crawl monitoring and an admin dashboard; separated raw data from the public dataset and removed sensitive fields before serving the frontend.'],
-    ['.project-blue .project-actions .button-primary', 'Hỏi về demo <span>↗</span>', 'Ask for a demo <span>↗</span>', true], ['.project-blue .project-more', 'Xem case study <span>↗</span>', 'Read case study <span>↗</span>', true],
-    ['.project-smartshop h3', 'SmartShop AI - E-Commerce', 'SmartShop AI - E-Commerce'],
-    ['.project-smartshop p', 'Phát triển giao diện UI/UX hiện đại, tối ưu hiệu suất và xây dựng luồng xác thực JWT an toàn cho trải nghiệm mua sắm.', 'Built a modern, high-performance UI/UX and a secure JWT authentication flow for the shopping experience.'],
-    ['.project-smartshop .project-actions .button-outline', 'Xem repository <span>↗</span>', 'View repository <span>↗</span>', true],
-    ['.project-food h3', 'FoodDelivery Platform', 'FoodDelivery Platform'],
-    ['.project-food p', 'Xây dựng backend xử lý nghiệp vụ đặt đồ ăn, phân quyền Admin/User và đăng nhập an toàn qua Google OAuth2.', 'Built the backend for food-ordering workflows, Admin/User permissions and secure Google OAuth2 login.'],
-    ['.project-food .project-actions .button-outline', 'Xem repository <span>↗</span>', 'View repository <span>↗</span>', true],
-    ['.project-library h3', 'Hệ thống Quản lý Thư viện', 'Library Management System'],
-    ['.project-library p', 'Thiết kế backend quản lý luồng mượn/trả sách, tài khoản, trạng thái tài liệu và các logic nghiệp vụ cốt lõi.', 'Designed a backend for lending and returns, accounts, document status and core business logic.'],
-    ['.project-library .project-actions .button-outline', 'Xem repository <span>↗</span>', 'View repository <span>↗</span>', true],
-    ['.education-item:nth-child(1) h3', 'Đại học Công nghệ — ĐHQGHN', 'University of Engineering and Technology — VNU'], ['.education-item:nth-child(1) p', 'Sinh viên ngành Công nghệ thông tin', 'Computer Science student'], ['.education-item:nth-child(1) .education-note', 'Học qua việc xây sản phẩm, đọc tài liệu kỹ thuật và tự đặt câu hỏi.', 'Learning through products, technical docs and self-directed questions.'],
-    ['.education-item:nth-child(2) h3', 'Independent learning', 'Independent learning'], ['.education-item:nth-child(2) p', 'TryHackMe · Next.js / React · AI/ML ứng dụng', 'TryHackMe · Next.js / React · Applied AI/ML'], ['.education-item:nth-child(2) .education-note', 'Pentest cơ bản, kiến trúc hệ thống, RAG và fine-tuning.', 'Application pentesting, systems architecture, RAG and fine-tuning.'],
+    ['.project-score h3', 'THPT Score Explorer 2026', 'THPT Score Explorer 2026'],
+    ['.project-score .project-role-block span', 'Bài toán → giải pháp', 'Problem → solution'], ['.project-score .project-role-block strong', 'Traffic tăng đột biến khi công bố điểm → Next.js + Supabase + Scrapy + Vercel', 'Traffic spikes at score release → Next.js + Supabase + Scrapy + Vercel'],
+    ['.project-score .project-points li:nth-child(1)', 'Crawler lấy dữ liệu từ nguồn công bố chính thức, validate và chuẩn hóa trước khi ghi vào dataset.', 'The crawler validates and normalizes data from the official publication source before writing to the dataset.'],
+    ['.project-score .project-points li:nth-child(2)', '13.290 hồ sơ từ 23 hội đồng/trường thi được xử lý, tính thứ hạng và phân bố điểm bằng PostgreSQL.', '13,290 records across 23 schools or exam councils were processed, ranked and analyzed with PostgreSQL.'],
+    ['.project-score .project-points li:nth-child(3)', 'API lookup kiểm tra SBD 8 chữ số, cache kết quả 24 giờ và tách dữ liệu raw khỏi dataset public.', 'The lookup API validates 8-digit candidate numbers, caches results for 24 hours and separates raw data from the public dataset.'],
+    ['.project-score .project-points li:nth-child(4)', 'Kết quả: có người dùng thật; [SỐ LIỆU: lượt truy cập / lượt tra cứu / thời gian cao điểm].', 'Result: real users; [DATA: visits / lookups / peak-time load].'],
+    ['.project-score .project-actions .button-primary', 'Mở demo trực tiếp <span>↗</span>', 'Open live demo <span>↗</span>', true], ['.project-score .project-more', 'Xem case study <span>↗</span>', 'Read case study <span>↗</span>', true],
+    ['.project-ocr h3', 'Structured Document → Editable Word', 'Structured Document → Editable Word'],
+    ['.project-ocr .project-role-block span', 'Bài toán → giải pháp', 'Problem → solution'], ['.project-ocr .project-role-block strong', 'Layout phức tạp và công thức khó ghép → Python microservice + vision-language + PaddleOCR PP-Structure', 'Complex layouts and formula joins → Python microservice + vision-language + PaddleOCR PP-Structure'],
+    ['.project-ocr .project-points li:nth-child(1)', 'Rule-based pre-filter phát hiện vùng và thứ tự đọc trước khi đưa các trường hợp khó vào AI review loop.', 'A rule-based pre-filter detects regions and reading order before difficult cases enter the AI review loop.'],
+    ['.project-ocr .project-points li:nth-child(2)', 'Cascade theo confidence giảm số lần gọi model mạnh; chỉ nâng cấp xử lý khi tín hiệu không đủ chắc chắn.', 'A confidence cascade reduces calls to the stronger model and escalates only when signals are uncertain.'],
+    ['.project-ocr .project-points li:nth-child(3)', 'Chuyển công thức sang MathML/OMML để file Word tiếp tục chỉnh sửa được.', 'Formulas are converted to MathML/OMML so the Word output remains editable.'],
+    ['.project-ocr .project-points li:nth-child(4)', 'Kết quả: [SỐ LIỆU: độ chính xác / thời gian xử lý trung bình mỗi tài liệu].', 'Result: [DATA: accuracy / average processing time per document].'],
+    ['.project-math-exam .project-actions .button-outline', 'Xem repository <span>↗</span>', 'View repository <span>↗</span>', true],
+    ['.education-item:nth-child(1) h3', 'Đại học Công nghệ — ĐHQGHN', 'University of Engineering and Technology — VNU'], ['.education-item:nth-child(1) p', 'Sinh viên ngành Công nghệ thông tin', 'Computer Science student'], ['.education-item:nth-child(1) .education-note', 'Nền tảng về hệ thống, cơ sở dữ liệu và quy trình phát triển phần mềm.', 'Foundations in systems, databases and software-development practices.'],
+    ['.education-item:nth-child(2) h3', 'Independent learning', 'Independent learning'], ['.education-item:nth-child(2) p', 'TryHackMe · Next.js / React · AI/ML ứng dụng', 'TryHackMe · Next.js / React · Applied AI/ML'], ['.education-item:nth-child(2) .education-note', 'Bảo mật ứng dụng cơ bản, kiến trúc hệ thống và xây sản phẩm thực tế.', 'Basic application security, systems architecture and real product work.'],
     ['.contact-grid h2', 'Cùng xây một thứ<br><em>đáng để dùng.</em>', 'Let’s build something<br><em>worth using.</em>', true],
-    ['.contact-grid p', 'Mình đang tìm cơ hội thực tập Software Developer và luôn sẵn sàng trò chuyện về sản phẩm, backend, dữ liệu hoặc một ý tưởng thú vị.', 'I’m looking for a Software Developer internship and always happy to talk about products, backend, data or an interesting idea.'],
+    ['.contact-grid p', 'Mình đang tìm cơ hội thực tập Software Developer theo hướng web, backend và full-stack.', 'I’m looking for a Software Developer internship focused on web, backend and full-stack work.'],
     ['.contact-grid .button-primary', 'Gửi email cho Hưng <span>↗</span>', 'Email Hưng <span>↗</span>', true],
-    ['.contact-links a:last-child strong', 'Yêu cầu bản CV', 'Request CV'],
-    ['.footer-note', 'Designed & built with curiosity <span>✦</span>', 'Designed & built with curiosity <span>✦</span>', true], ['.footer-inner > a', 'Back to top ↑', 'Back to top ↑']
+    ['.contact-links a:last-child strong', 'Tải CV PDF', 'Download CV PDF'],
+    ['.footer-note', 'Built · shipped · maintained <span>✦</span>', 'Built · shipped · maintained <span>✦</span>', true], ['.footer-inner > a', 'Về đầu trang ↑', 'Back to top ↑']
   ];
 
   const sectionLabels = {
@@ -205,19 +221,16 @@ document.addEventListener('DOMContentLoaded', () => {
       const labelText = label.querySelector('span:last-child');
       if (labelText) labelText.textContent = sectionLabels[language][index];
     });
-    document.querySelector('.score-visual .visual-label').textContent = language === 'vi' ? 'LIVE PRODUCT / 2026' : 'LIVE PRODUCT / 2026';
-    document.querySelector('.paper-visual .visual-label').textContent = language === 'vi' ? 'OCR PIPELINE / PYTHON' : 'OCR PIPELINE / PYTHON';
-    document.querySelector('.browser-brand').innerHTML = 'score<span>explorer</span><b>2026</b>';
-    document.querySelector('.search-bar').innerHTML = language === 'vi' ? '<span>⌕</span> Nhập số báo danh <strong>Tra cứu</strong>' : '<span>⌕</span> Enter candidate number <strong>Search</strong>';
+    document.querySelector('.project-score .visual-label')?.replaceChildren(document.createTextNode('LIVE PRODUCT / PROOF'));
+    document.querySelector('.project-ocr .visual-label')?.replaceChildren(document.createTextNode('OCR PIPELINE / PYTHON'));
     const scoreMetric = document.querySelector('.visual-metric span');
     if (scoreMetric) scoreMetric.innerHTML = language === 'vi' ? 'hồ sơ<br>đã xử lý' : 'records<br>processed';
-    document.querySelector('.result-row span').textContent = language === 'vi' ? 'Nguyễn V. A.' : 'Nguyen V. A.';
-    document.querySelector('.result-row.faded span').textContent = language === 'vi' ? 'Toán / Văn / Ngoại ngữ' : 'Math / Literature / English';
-    document.querySelector('.result-row.faded b').textContent = language === 'vi' ? 'Đã cập nhật' : 'Updated';
-    const featuredStatus = document.querySelector('.project-math-exam .project-status');
-    const liveStatus = document.querySelector('.project-blue .project-status');
-    if (featuredStatus) featuredStatus.textContent = language === 'vi' ? '● Dự án nổi bật' : '● Featured build';
-    if (liveStatus) liveStatus.textContent = language === 'vi' ? '● Đang hoạt động' : '● Live product';
+    const scoreStatus = document.querySelector('.project-score .project-status');
+    const ocrStatus = document.querySelector('.project-ocr .project-status');
+    const mathStatus = document.querySelector('.project-math-exam .project-status');
+    if (scoreStatus) scoreStatus.textContent = language === 'vi' ? '● Đang hoạt động' : '● Live product';
+    if (ocrStatus) ocrStatus.textContent = language === 'vi' ? '● Bản build kỹ thuật' : '● Technical build';
+    if (mathStatus) mathStatus.textContent = '● Project';
     document.querySelectorAll('.project-number').forEach((number, index) => { number.textContent = String(index + 1).padStart(2, '0'); });
     const flowLabels = document.querySelectorAll('.exam-flow span');
     const flowNotes = document.querySelectorAll('.exam-flow small');
@@ -227,7 +240,7 @@ document.addEventListener('DOMContentLoaded', () => {
     languageToggle.dataset.language = language;
     languageToggle.setAttribute('aria-label', language === 'vi' ? 'Chuyển sang tiếng Anh' : 'Switch to Vietnamese');
     document.title = language === 'vi' ? 'Hưng — Software Developer' : 'Hưng — Software Developer';
-    document.querySelector('meta[name="description"]').content = language === 'vi' ? 'Portfolio của Hưng — Software Developer định hướng backend/full-stack, xây dựng sản phẩm web và pipeline dữ liệu thực tế.' : 'Hưng’s portfolio — a backend/full-stack minded Software Developer building real-world web products and data pipelines.';
+    document.querySelector('meta[name="description"]').content = language === 'vi' ? 'Portfolio của Hưng — Software Developer tập trung vào sản phẩm web, backend, dữ liệu và các hệ thống có người dùng thật.' : 'Hưng’s portfolio — a Software Developer focused on web products, backend, data and systems with real users.';
     document.querySelector('meta[property="og:description"]').content = language === 'vi' ? 'Từ dữ liệu lộn xộn đến sản phẩm hữu ích cho người dùng thật.' : 'Turning messy data into useful products for real people.';
     localStorage.setItem('portfolio-language', language);
   }
@@ -256,4 +269,18 @@ document.addEventListener('DOMContentLoaded', () => {
   }));
   document.querySelector('.dialog-close')?.addEventListener('click', () => dialog?.close());
   dialog?.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
+
+  document.querySelector('#contact-form')?.addEventListener('submit', event => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const name = String(formData.get('name') || '').trim();
+    const email = String(formData.get('email') || '').trim();
+    const message = String(formData.get('message') || '').trim();
+    const subject = encodeURIComponent(`Portfolio contact from ${name}`);
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
+    window.location.href = `mailto:hungvanvip@gmail.com?subject=${subject}&body=${body}`;
+    const status = document.querySelector('#contact-status');
+    if (status) status.textContent = root.lang === 'vi' ? 'Đang mở ứng dụng email của bạn.' : 'Opening your email application.';
+  });
 });
