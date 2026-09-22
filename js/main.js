@@ -225,7 +225,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const labelText = label.querySelector('span:last-child');
       if (labelText) labelText.textContent = sectionLabels[language][index];
     });
-    document.querySelector('.project-score .visual-label')?.replaceChildren(document.createTextNode('LIVE PRODUCT / PROOF'));
+    document.querySelector('.project-score .visual-label')?.replaceChildren(document.createTextNode('LIVE PRODUCT / DATA'));
     document.querySelector('.project-smartshop .visual-label')?.replaceChildren(document.createTextNode('AUTH API / SPRING BOOT'));
     const scoreMetric = document.querySelector('.visual-metric span');
     if (scoreMetric) scoreMetric.innerHTML = language === 'vi' ? 'hồ sơ<br>đã xử lý' : 'records<br>processed';
